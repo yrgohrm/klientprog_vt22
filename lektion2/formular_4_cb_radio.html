@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulär 2</title>
+</head>
+
+<body>
+
+    <form action="http://localhost:8080/api/echo" method="post">
+        <label>
+            <input type="checkbox" name="chk1">
+            Text för alternativet.
+        </label><br>
+        <label>
+            <input type="checkbox" name="chk2" checked>
+            En förkryssad ruta
+        </label>
+    </form>
+
+    <form action="http://localhost:8080/api/echo" method="post">
+        Bästa glassmaken:<br>
+        <label>
+            <input type="radio" name="flavor" value="chocolate">
+            Choklad
+        </label><br>
+        <label>
+            <input type="radio" name="flavor" value="vanilla" checked>
+            Vanilj
+        </label>
+
+        <br><br>
+
+        Val 1: <input type="radio" name="choice" value="vanilla" checked><br>
+        Val 2: <input type="radio" name="choice" value="vanilla" checked><br>
+    </form>
+
+
+
+</body>
+
+</html>
