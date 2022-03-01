@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lite stil gör en glad!</title>
+
+    <style>
+        li>em {
+            /* child selector */
+            color: blue;
+        }
+
+        p~div {
+            /* general sibling selector */
+            color: blue;
+        }
+
+        h1+p {
+            /* adjacent sibling selector */
+            font-weight: bold;
+        }
+
+        a:visited {
+            /* pseudo class selector */
+            color: fuchsia;
+        }
+
+        /* a pseudo class has higher specificity */
+
+        nav a {
+            border: 3px solid black;
+            border-radius: 0.4em;
+            color: black;
+            font-weight: bold;
+            padding: 0.2em;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            border: 3px solid royalblue;
+            color: royalblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>En väldigt fin sida</h1>
+
+    <ul>
+        <li><em>direkt barn till li</em></li>
+        <li><span><em>inte direkt barn till li</em></span></li>
+    </ul>
+
+    <p>
+        En paragraf.
+    </p>
+
+    <div>
+        En syskon som är en div.
+    </div>
+
+    <aside>
+        <div>En div som inte är syskon.</div>
+    </aside>
+
+    <h1>Huvudtitel</h1>
+
+    <p>Direkt efter h1</p>
+
+    <p>Inte direkt efter h1</p>
+
+    <p>
+        <a href="https://www.dfjhdfkjdshkskjsdhfjksdf.com">En länk jag inte besökt</a>
+        <a href="https://www.wikipedia.org">En länk jag har besökt</a>
+    </p>
+
+    <nav>
+        <a href="https://www.dfjhdfkjdshkskjsdhfjksdf.com">En länk jag inte besökt</a>
+        <a href="https://www.wikipedia.org">En länk jag har besökt</a>
+    </nav>
+
+</body>
+
+</html>

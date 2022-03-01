@@ -1,0 +1,9 @@
+body {
+  background-color: grey;
+}
+
+em,
+strong {
+  color: red;
+  font-size: 150%;
+}
