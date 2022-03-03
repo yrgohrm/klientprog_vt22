@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Position</title>
+    <style>
+        #outer {
+            border: 1px solid black;
+            width: 200px; 
+            height: 200px; 
+            margin: 100px;
+            position: relative;
+        }
+
+        #inner {
+            background-image: radial-gradient(blue, black);
+            width: 50px; 
+            height: 50px;
+            position: absolute;
+            top: 30px;
+            left: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="outer">
+
+        <div id="inner">
+
+        </div>
+    </div>
+
+</body>
+
+</html>

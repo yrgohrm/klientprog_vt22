@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flytande element</title>
+    <style>
+        body {
+            width: 300px;
+        }
+
+        div {
+            border: 1px solid black;
+            margin: 1em;
+            padding: 0.5em;
+        }
+
+        .fancy {
+            background-image: linear-gradient(red, yellow);
+            border: 1px solid red;
+            display: inline-block;
+            margin: 0;
+            height: 30px;
+            width: 30px;
+        }
+
+        .fleft {
+            float: left;
+        }
+
+        .fright {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div class="fancy"></div>
+        Pellentesque feugiat dolor est, sit amet lacinia mi laoreet in. Vivamus porttitor malesuada turpis.
+    </div>
+
+    <div>
+        <div class="fancy fleft"></div>
+        Pellentesque feugiat dolor est, sit amet lacinia mi laoreet in. Vivamus porttitor malesuada turpis.
+    </div>
+
+    <div>
+        <div class="fancy fright"></div>
+        Pellentesque feugiat dolor est, sit amet lacinia mi laoreet in. Vivamus porttitor malesuada turpis.
+    </div>
+
+</body>
+
+</html>

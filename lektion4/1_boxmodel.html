@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lådmodellen</title>
+</head>
+
+<body>
+
+    <!-- 
+        no top and bottom margins due to "collapsing margins" 
+        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing 
+    -->
+
+    <div style="background-color: hotpink;">
+        <div style="background-color: aqua; 
+              border: 0.5em solid black;
+              margin: 2em; padding: 1em;">
+            <span style="background-color: bisque;">
+                Innehåll
+            </span>
+        </div>
+        <div style="background-color: aqua; 
+              border: 0.5em solid black;
+              margin: 2em; padding: 1em;">
+            <span style="background-color: bisque;">
+                Innehåll
+            </span>
+        </div>
+    </div>
+
+    <ul style="list-style: none;">
+        <li>
+            <div style="display: inline-block; background-color: hotpink; width: 1em;">&nbsp;</div> Marginal (margin)
+        </li>
+        <li>
+            <div style="display: inline-block; background-color: aqua; width: 1em;">&nbsp;</div> Utfyllnad (padding)
+        </li>
+        <li>
+            <div style="display: inline-block; background-color: black; width: 1em;">&nbsp;</div> Kant (border)
+        </li>
+        <li>
+            <div style="display: inline-block; background-color: bisque; width: 1em;">&nbsp;</div> Innehåll (contents)
+        </li>
+    </ul>
+
+</body>
+
+</html>

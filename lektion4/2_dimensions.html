@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lådmodellen</title>
+
+    <style>
+        body>div {
+            margin: 1em;
+            padding: 0.3em;
+        }
+
+        div {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div style="width: 50%">
+        50% - är procent av förälraelementet.
+
+        <div style="width: 50%">
+            Så den här är hälften av hälften.
+
+            <div style="width: 75%">
+                75%
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 500px">
+        500px - pixlar är en fast enhet vi helst vill undvika att använda
+    </div>
+
+<div style="font-size: 80%">
+    <div style="width: 30em">
+        30 em - em är fontstorleken av föräldraelementet
+    </div>
+
+    <div style="width: 30rem">
+        30 rem - rem är fontstorleken av rotelementet
+    </div>
+</div>
+    <div style="width: 30ex">
+        30 ex - ex är höjden av 'x' hos elementets font
+    </div> 
+
+    <div style="width: 50vw">
+        50 vw - viewport width, en hundradel av den synliga ytans bredd
+    </div>
+
+    <div style="width: 8em; height: 4em">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, quaerat! Lorem, ipsum.
+    </div>
+</body>
+
+</html>
