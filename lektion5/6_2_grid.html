@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <title>Testsida</title>
+    <style>
+        .thegrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="thegrid">
+        <div style="background-color: #eee; grid-column: 1; grid-row: 1 / 3;"></div>
+        <div style="background-color: #ddd;"></div>
+        <div style="background-color: #ccc;"></div>
+        <div style="background-color: #aaa; grid-column: 2 / 4; grid-row: 2"></div>
+        <div style="background-color: #888;"></div>
+        <div style="background-color: #777;"></div>
+        <div style="background-color: #666;"></div>
+    </div>
+
+</body>
+</html>

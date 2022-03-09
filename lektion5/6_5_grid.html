@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testsida</title>
+    <style>
+        html {
+            color: #FAFAFA;
+            font-family: 'Segoe UI', Verdana, sans-serif;
+        }
+
+        .thegrid {
+            display: grid;
+            gap: 0.5em;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: 1fr 4fr;
+            width: 100%;
+        }
+
+        .topnav ul,
+        .sidenav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidenav ul {
+            flex-direction: column;
+        }
+
+        .topnav li {
+            margin: 0 0.5em;
+        }
+
+        .sidenav li {
+            margin: 0.5em 0.5em;
+        }
+
+        .topnav li:last-child {
+            margin-left: auto;
+        }
+
+        nav a {
+            background-color: #C1BCAC;
+            border: 2px solid #214E34;
+            border-radius: 8px;
+            color: #214E34;
+            display: block;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #D3CEBE;
+            color: #012E14;
+        }
+
+        @media screen and (max-width: 700px) {
+            .thegrid {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thegrid">
+        <div style="background-color: #EFD0CA; grid-column: 1/3; grid-row: 1;">
+            <nav class="topnav" aria-label="top navigation">
+                <ul>
+                    <li><a href="#">Hem</a></li>
+                    <li><a href="#">Vänner</a></li>
+                    <li><a href="#">Erbjudanden</a></li>
+                    <li><a href="#">Logga ut</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div style="background-color: #979B8D; grid-column: 1; grid-row: 2;">
+            <nav class="sidenav" aria-label="side navigation">
+                <ul>
+                    <li><a href="#">Flöde</a></li>
+                    <li><a href="#">Utforska</a></li>
+                    <li><a href="#">Karta</a></li>
+                    <li><a href="#">Bonuspoäng</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div style="background-color: #5C7457; grid-column: 2; grid-row: 2; padding: 0 1em;">
+            <h1>Lite text</h1>
+            <p>
+                Suspendisse eros purus, venenatis ac risus et, pharetra feugiat mauris. Etiam dignissim lobortis
+                euismod. Nunc ac volutpat nunc. Donec pharetra orci.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

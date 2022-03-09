@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Kod för minsta skärm hamnar här */
+        div {
+            background-color: #b16b02;
+            border: 1px solid black;
+            float: left;
+            height: 100px;
+            margin: 5px;
+            width: 100px;
+        }
+
+        .aux {
+            display: none;
+        }
+
+        @media screen and (min-width: 576px) {
+            /* Kod för "small" hamnar här */
+            div {
+                background-color: #a58048;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            div {
+                background-color: #ac9a7f;
+            }
+
+            .aux {
+                display: block;
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            div {
+                background-color: #b6b0a6;
+                width: 150px;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            div {
+                background-color: #ffffff;
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="aux"></div>
+    <div class="aux"></div>
+</body>
+</html>
