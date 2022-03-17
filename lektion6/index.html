@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 0.5em;
+        }
+
+        .container div:nth-child(2) {
+            flex-grow: 1;
+        }
+
+        .btn {
+            border: 2px solid rebeccapurple;
+            border-radius: 5px;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 0.3em;
+        }
+
+        .btn-warning {
+            border-color: red;
+            color: red;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            gap: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>Hej</div>
+        <div>på<br>!!!!<br>!!!!</div>
+        <div class="btn btn-warning">dig</div>
+    </div>
+    
+    <div class="container">
+        <div class="btn">Hej</div>
+        <div>på<br>!!!!<br>!!!!</div>
+        <div>dig</div>
+    </div>
+
+    <div class="container">
+        <div>Hej</div>
+        <div>på<br>!!!!<br>!!!!</div>
+        <div>dig</div>
+    </div>
+</body>
+</html>
