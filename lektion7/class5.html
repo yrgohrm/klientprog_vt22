@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        class Car {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+
+            printInfo() {
+                output(this.name)
+                output(this.year)
+            }
+        }
+
+        class OwnedCar extends Car {
+            constructor(name, year, owner) {
+                super(name, year)
+                this._owners = [owner]
+            }
+
+            set owner(o) {
+                this._owners.push(o)
+            }
+
+            get owner() {
+                return this._owners[this._owners.length-1]
+            }
+
+            printInfo() {
+                super.printInfo()
+                output(`Current owner: ${this.owner}`)
+                output(`All owners: ${this._owners}`)
+            }
+        }
+
+        let mycar = new OwnedCar('Ford S-Max', 2018, 'Hampus')
+        mycar.owner = 'Stina'
+        mycar.printInfo()
+    </script>
+</body>
+
+</html>

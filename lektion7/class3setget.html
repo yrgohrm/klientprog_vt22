@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        class Car {
+            constructor(name, year, owner) {
+                this.name = name;
+                this.year = year;
+                this.ownerList = [owner];
+            }
+
+            printInfo() {
+                output(this.name)
+                output(this.year)
+                output(this.owner)
+                output(this.ownerList)
+            }
+
+            set owner(val) {
+                this.ownerList.unshift(val)
+            }
+
+            get owner() {
+                return this.ownerList[0]
+            }
+        }
+        
+
+        function changeOwner(car, newOwner) {
+            car.owner = newOwner;
+        }
+
+        let car = new Car('Lada Vesta', 2020, "Bosse Bredsladd")
+        car.printInfo()
+
+        changeOwner(car, "Lena Lamm")
+        car.printInfo()
+    </script>
+</body>
+
+</html>

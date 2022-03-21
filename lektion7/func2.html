@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        function myFunction() {
+            for (let idx in arguments) {
+                output(arguments[idx])
+            }
+        }
+
+        function anotherFunction(x, y, ...params) {
+            output("x= " + x)
+            output("y = " + y)
+            params.forEach(z => output(z))
+        }
+
+        myFunction(1, 2, 3)
+        anotherFunction("x", "y", 1, 2, "a")
+    </script>
+</body>
+
+</html>

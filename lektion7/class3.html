@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        class Car {
+            #privateValue
+
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+                this.#privateValue = 100;
+            }
+
+            printInfo() {
+                output(this.#privateValue)
+                output(this.name)
+                output(this.year)
+            }
+        }
+        
+        let car = new Car('Lada Vesta', 2020)
+        car.printInfo()
+        
+        let car2 = new Car('Ford S-Max', 2018)
+        car2.hejsan = "Hoppsan"
+        delete car2.name
+        car2.printInfo()
+
+        console.log(car.hejsan)
+        console.log(car2.hejsan)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        const car = {
+            name: 'Lada Vesta',
+            year: 2019
+        }
+
+        output(car.name)
+        output(car['name'])
+        car.year = 2021
+        output(car.year)
+        car['year'] = 2020
+        output(car.year)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        function myFunction(x, y) {
+            return x * y;
+        }
+
+        function addBothEnds(list, val) {
+            list.unshift(val)
+            list.push(val)
+        }
+
+        let anotherFunction = function (x, y) {
+            return x * y;
+        }
+
+        let lambdaFunction = (x, y) => x * y
+
+        const lambdaFunction2 = (x, y) => {
+            return x * y
+        }
+
+        myFunction = (x, y) => 33 * x + y
+
+        output(myFunction(1, 2))
+        output(myFunction("nisse", 2))
+        output(myFunction("nisse", [1, 2]))
+        
+        output(anotherFunction(1, 2))
+
+
+        output(lambdaFunction2(1, 2))
+        output(lambdaFunction(1, 2))
+    </script>
+</body>
+
+</html>
