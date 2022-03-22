@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+</head>
+<body>
+    <script>
+
+        let x = []
+
+        x.push("hejsan")
+
+        console.log(x)
+        console.log(x[0])
+
+
+        function printHello(name = 'din gamla knickedick') {
+            console.log("Hejsan " + name)
+        }
+
+        const printGoodbye = (name) => {
+            console.log("Hejdå " + name)
+        }
+
+        printHello = (name) => { console.log("hahahaaha " + name)}
+
+        // printGoodbye = function (name) { console.log("hahahaaha " + name)}
+
+        printHello("Bosse")
+
+        printHello()
+
+        printGoodbye("Bosse")
+    </script>
+</body>
+</html>
