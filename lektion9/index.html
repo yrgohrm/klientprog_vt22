@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div>Hejsan</div>
+    <div id="middle">Hallå <em>hej</em></div>
+    <div>hahaha</div>
+
+    <div id="skum"><strong>Hejsan!!!</strong></div>
+
+    <script>
+        let elem = document.getElementById("middle")
+        elem.append("hejsan igen")
+        elem.append("xyz")
+
+        for (const val of elem.children) {
+            console.log("children", val)
+        }
+
+        for (const val of elem.childNodes) {
+            console.log("childNodes", val)
+        }
+
+
+        let skum = document.getElementById("skum")
+        for (const val of skum.childNodes) {
+            console.log("skum", val)
+        }
+
+        let emElem = document.createElement('em')
+        emElem.innerHTML = 'ååååå<div style="background-color:red;inset:0; position:fixed;">hej</div>'
+
+        skum.appendChild(emElem)
+    </script>
+</body>
+</html>
