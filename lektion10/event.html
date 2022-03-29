@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function printConsole() {
+            console.log("hej")
+        }
+
+        function printAgain() {
+            console.log("hallå")
+        }
+
+        function trackMouse(event) {
+            let xpos = event.pageX
+            let ypos = event.pageY
+
+            let heart = document.getElementById("heart")
+            heart.style.display = "block"
+            heart.style.left = xpos + "px";
+            heart.style.top = ypos + "px";
+        }
+        
+        window.addEventListener('load', () => {
+            let div = document.getElementById('maindiv')
+            div.addEventListener('click', printConsole)
+            div.addEventListener('click', printAgain)
+            div.addEventListener('mousemove', trackMouse)
+        })
+
+
+    </script>
+
+    <style>
+
+        #maindiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        #heart {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        Hejsan hoppsan
+    </div>
+
+    <div id="heart">
+        ❤️
+    </div>
+</body>
+</html>
