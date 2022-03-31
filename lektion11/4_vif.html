@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <span v-if="show">Is this text present?</span>
+        <span v-else>This is a no show!</span>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    show: true
+                }
+            },
+            mounted() {
+                setInterval(() => this.show = !this.show, 2000)
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+
+</html>

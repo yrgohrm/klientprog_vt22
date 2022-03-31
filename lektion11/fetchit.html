@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            width: min(40rem, 90%);
+        }
+
+        li {
+            border: 1px solid hotpink;
+            display: block;
+            flex-grow: 1;
+            list-style: none;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="button" value="Joke!" id="jokebtn">
+
+    <ul id="jokes"></ul>
+
+    <script>
+        async function getJoke() {
+            let options = {
+                headers: { 'Accept': 'application/json' }
+            }
+
+            let resp = await fetch('https://icanhazdadjoke.com/', options)
+
+            if (!resp.ok) {
+                throw new Error(resp.status)
+            }
+
+            return resp.json()
+        }
+
+        async function addJokeToList() {
+            let joke = await getJoke()
+            let ul = document.getElementById("jokes")
+            let li = document.createElement('li')
+            li.innerText = joke.joke
+            ul.appendChild(li)
+        }
+
+        let btn = document.getElementById('jokebtn')
+        btn.addEventListener('click', addJokeToList)
+        
+    </script>
+</body>
+
+</html>

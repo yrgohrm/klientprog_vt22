@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <form>
+            <input type="text" v-model="textbox"><br>
+            {{textbox}}<br>
+            <input type="checkbox" v-model="somecheckbox"><br>
+            {{somecheckbox}}<br>
+            <input type="radio" value="radio1" v-model="radioset"><br>
+            <input type="radio" value="radio2" v-model="radioset"><br>
+            {{radioset}}
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    textbox: "",
+                    somecheckbox: true,
+                    radioset: "radio2"
+                }
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+
+</html>

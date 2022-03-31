@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <form>
+            <input type="checkbox" v-model="somecheckbox"> Avancerade inställningar<br>
+            
+            <div style="border: 1px solid black;" v-if="somecheckbox">
+                Inställning 1<br>
+                Inställning 2<br>
+                Inställning 3<br>
+                Inställning 4<br>
+                Inställning 5<br>
+                Inställning 1<br>
+                Inställning 1<br>
+                Inställning 1<br>
+                Inställning 1<br>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    somecheckbox: true,
+                }
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+
+</html>
