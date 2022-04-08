@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+</head>
+
+<body>
+    <div id="app">
+        <list-component button-text="Click" heading="Comp 1"></list-component>
+        <list-component button-text="Add" heading="Comp Two"></list-component>
+        <list-component button-text="Add it NOW" heading="Fun Stuff"></list-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {}
+
+        const vueApp = Vue.createApp(app)
+
+        vueApp.component('list-component', {
+            props: ["buttonText", "heading"],
+            data() {
+                return {
+                    list: []
+                }
+            },
+            methods: {
+                addItem(evt) {
+                    let text = String(Math.random())
+                    this.list.push(text)
+                }
+            },
+            template: `<div>
+                            <h2>{{heading}}</h2>
+                            <input type="button" :value="buttonText" @click="addItem">
+                            <ul>
+                                <li v-for="item of list">{{item}}</li>
+                            </ul>
+                        </div>`
+        })
+
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>

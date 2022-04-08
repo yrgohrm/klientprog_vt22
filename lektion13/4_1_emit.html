@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>Highest number: {{highest}}</p>
+        <list-component button-text="Add A" @new-number="handleRandom">
+        </list-component>
+        <list-component button-text="Add B" @new-number="handleRandom">
+        </list-component>
+        <list-component button-text="Add C" @new-number="handleRandom">
+        </list-component>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    highest: undefined
+                }
+            },
+            methods: {
+                handleRandom(randomNumber) {
+                    if (this.highest) {
+                        if (this.highest < randomNumber) {
+                            this.highest = randomNumber
+                        }
+                    }
+                    else {
+                        this.highest = randomNumber
+                    }
+                }
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+
+        vueApp.component('list-component', {
+            props: ["buttonText"],
+            emits: ["new-number"],
+            data() {
+                return {
+                    list: []
+                }
+            },
+            methods: {
+                addItem(evt) {
+                    let rand = Math.random()
+                    this.list.push(String(rand))
+
+                    // here we emit a custom event
+                    this.$emit('new-number', rand)
+                }
+            },
+            template: `<div>
+                            <input type="button" :value="buttonText" @click="addItem">
+                            <ul>
+                                <li v-for="item of list">{{item}}</li>
+                            </ul>
+                        </div>`
+        })
+
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>

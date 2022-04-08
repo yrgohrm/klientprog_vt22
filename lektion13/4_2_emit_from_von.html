@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+</head>
+
+<body>
+    <div id="app" style="width: 200px;">
+        <numpad-component @new-number="handleNewNumber">
+        </numpad-component>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            methods: {
+                handleNewNumber(num) {
+                    alert(num)
+                }
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+
+        vueApp.component('numpad-component', {
+            emits: ["new-number"],
+            template: `<div style="display: grid; grid-template-columns: auto auto auto;">
+                            <template v-for="num in 9" style="display: flex;">
+                                <input type="button" :value="num" @click="$emit('new-number', num)">
+                            </template>
+                            <input type="button" value="0" @click="$emit('new-number', 0)"
+                                   style="grid-column: 1/4;">
+                        </div>`
+        })
+
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>

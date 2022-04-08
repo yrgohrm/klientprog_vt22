@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+</head>
+
+<body>
+    <div id="app">
+        <article-comp :articles="headings">
+        </article-comp>
+        <!-- <local-art-comp title="hejhej">hallå</local-art-comp> -->
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+
+        const localArtComp = {
+            props: ["title"],
+            template: `<article>
+                        <h2>{{title}}</h2>
+                        <p><slot></slot></p>
+                       </article>`
+        }
+
+        const articleComp = {
+            components: { 
+                localArtComp
+            },
+            props: {
+                articles: Array
+            },
+            template: `<div style="border: 1px solid black;">
+                         Alla artiklar:
+                         <local-art-comp v-for="art of articles" :title="art">
+                            {{art}}
+                         </local-art-comp>
+                       </div>`
+        }
+
+
+        const app = {
+            components: {
+                articleComp
+            },
+            data() {
+                return {
+                    headings: ["Artikel 1", "Art 2", "Art 3"]
+                }
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+
+//        vueApp.component('article-comp', articleComp)
+//        vueApp.component('local-art-comp', localArtComp)
+
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>

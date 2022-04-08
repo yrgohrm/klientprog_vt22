@@ -1,0 +1,30 @@
+.user-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  font-size: 150%;
+}
+
+.user-item-offline {
+    opacity: 0.5;
+}
+
+.avatar {
+    padding: 4px;
+}
+
+.avatar-online-dot {
+  background-color: greenyellow;
+  border: 1px solid green;
+  border-radius: 50%;
+  height: 7px;
+  width: 7px;
+
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}

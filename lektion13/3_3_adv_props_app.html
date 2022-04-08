@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="change" @click="changeText">
+        <list-component :pregen="3"></list-component>
+        <list-component :button-text="text" :pregen="1" class="blue"></list-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    text: "The text"
+                }
+            },
+            methods: {
+                changeText() {
+                    this.text = "Hallå"
+                }
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+
+        vueApp.component('list-component', {
+            props: {
+                buttonText: { 
+                    type: String,
+                    default: "Click"
+                },
+                pregen: Number
+            },
+            data() {
+                return {
+                    list: []
+                }
+            },
+            methods: {
+                addItem() {
+                    let text = String(Math.random())
+                    this.list.push(text)
+                }
+            },
+            created() {
+                if (this.pregen) {
+                    for (let i = 0; i < this.pregen; ++i) {
+                        this.addItem()
+                    }
+                }
+            },
+            template: `<div class="listcomp__main">
+                            <input type="button" :value="buttonText" @click="addItem">
+                            <ul>
+                                <li v-for="item of list">{{item}}</li>
+                            </ul>
+                        </div>`
+        })
+
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>
