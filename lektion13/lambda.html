@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div id="app">
+        
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            methods: {
+                aFunc() {
+                    let arr = [0]
+                    console.log("aFunc.this", this)
+
+                    // här har vi en lambda och "this" kommer inte
+                    // att sättas i anropet, däremot så när vi faktiskt
+                    // refererar till "this" i koden kommer istället
+                    // ett closure att skapas där "this" binds till
+                    // variabeln "this" som existerar i det omslutande
+                    // scopet, dvs. variabeln "this" i aFunc, vilket
+                    // är vue-objektet
+                    arr.forEach(element => {
+                        console.log("aFunc.forEach.lambda.this", this)
+                    });
+
+                    // här kommer "this" att sättas i anropet till funktionen
+                    // och "this" kommer därmed INTE att referera till "this"
+                    // som finns i aFunc
+                    arr.forEach(function (element) {
+                        console.log("aFunc.forEach.function.this", this)
+                    });
+                },
+
+                aLambda: () => {
+                    // här finns ingen "this" alls så this kan aldrig referera
+                    // till "this" i aLambda som något sorts closure.
+
+                    let arr = [0]
+                    console.log("aLambda.this", this)
+                    arr.forEach(element => {
+                        console.log("aLambda.forEach.lambda.this", this)
+                    });
+
+                    arr.forEach(function (element) {
+                        console.log("aLambda.forEach.function.this", this)
+                    });
+                }
+            },
+            created() {
+                console.log("created.this", this)
+
+                // när vi har ett objekt och anropar en metod
+                // x.y() kommer y anropas med this = x
+                // dvs. ungefär aFunc.this = created.this
+                this.aFunc()
+
+                // men när funktionen är en lambda kommer det inte
+                // att ske
+                this.aLambda()
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+
+
+</body>
+</html>
