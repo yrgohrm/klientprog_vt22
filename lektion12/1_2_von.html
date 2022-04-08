@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ count }}<br>
+        <input type="button" value="++" @click="increase">
+        <input type="button" value="--" @click="decrease">
+    </div>
+    
+    <script src="https://unpkg.com/vue@3.2.26"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    count: 1
+                }
+            },
+            methods: {
+                increase(evt) {
+                    this.count++
+                },
+                async decrease() {
+                    this.count--
+                    console.log("hejsan")
+                }
+            }
+        }
+    
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+</html>

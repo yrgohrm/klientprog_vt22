@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .item {
+            border: 1px solid hotpink;
+            padding: 0.3em;
+        }
+
+        .item img {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="Cat fact!!" @click="addCatFact">
+        <div v-for="fact of data" class="item">
+            <img :src="`https://robohash.org/${fact}.png?set=set4&size=32x32`" alt="">
+            {{fact}}
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.26"></script>
+    <script>
+        // https://cat-fact.herokuapp.com/facts/random
+        // `https://robohash.org/${urlText}.png?set=set4&size=32x32`
+
+        const app = {
+            data() {
+                return {
+                    data: []
+                }
+            },
+            methods: {
+                async addCatFact() {
+                    let resp = await fetch("https://cat-fact.herokuapp.com/facts/random")
+                    if (resp.ok) {
+                        let catFact = await resp.json()
+                        this.data.push(catFact.text)
+                    }
+                }
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+
+</html>
