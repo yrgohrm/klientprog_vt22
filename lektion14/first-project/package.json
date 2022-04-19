@@ -1,0 +1,19 @@
+{
+  "name": "first-project",
+  "version": "0.0.0",
+  "description": "A nice program",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "tap": "^16.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
