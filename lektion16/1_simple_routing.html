@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple routing</title>
+</head>
+
+<body>
+    <h1>My nice heading</h1>
+    <div id="app">
+        <nav>
+            <router-link to="/">Home</router-link>
+            <router-link to="/about">About</router-link>
+        </nav>
+        <router-view></router-view>
+    </div>
+    <div>a footer</div>
+
+    <script src="https://unpkg.com/vue@3.2.31"
+        integrity="sha384-G0X+ECsBjU2Ha7N2iYaXgLhQLRqTXERPvAoao78HQWMzQjfoVJxMaUj1595qZw5+"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue-router@4.0.14"
+        integrity="sha384-p/MQr8EifBn9P1NJ83Sxrz4UVrpi3oXCEatOW5o2jIyx9BB27OntxrRrCPY8rK1q"
+        crossorigin="anonymous"></script>
+    <script>
+        const Home = { template: '<p>my home <em>page</em></p>' }
+        const About = { template: '<p>my about page</p>' }
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes: [{ path: '/', component: Home },
+            { path: '/about', component: About }]
+        })
+
+        const app = {}
+
+        const vueApp = Vue.createApp(app)
+        vueApp.use(router)
+        vueApp.mount("#app")
+    </script>
+</body>
+
+</html>

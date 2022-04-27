@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested routes</title>
+    <style>
+        nav * {
+            margin: 0.3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <router-link to="/">Home</router-link>
+            <router-link to="/product/someproduct/info">Info</router-link>
+            <router-link to="/product/someproduct/accessories">Access</router-link>
+        </nav>
+
+        <div style="width: 50%; background-color: grey; border: 1px solid purple;">
+            <router-view></router-view>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.31"
+        integrity="sha384-G0X+ECsBjU2Ha7N2iYaXgLhQLRqTXERPvAoao78HQWMzQjfoVJxMaUj1595qZw5+"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue-router@4.0.14"
+        integrity="sha384-p/MQr8EifBn9P1NJ83Sxrz4UVrpi3oXCEatOW5o2jIyx9BB27OntxrRrCPY8rK1q"
+        crossorigin="anonymous"></script>
+    <script>
+        const Home = {
+            template: '<p>My Shop</p>'
+        }
+
+        const Product = {
+            template: `<div>
+                            <h1>Product: {{this.$route.params.product_id}}</h1>
+
+                            <div style="width: 50%; background-color: white;">
+                                <router-view></router-view>
+                            </div>
+                       </div>`
+        }
+
+        const Info = {
+            template: `<p>Info about {{this.$route.params.product_id}}</p>
+            <router-link to="/product/someproduct/accessories">Go to accessories</router-link>
+            `
+        }
+
+        const Accessories = {
+            template: `<p>Accessories to {{this.$route.params.product_id}}</p>
+            <router-link to="/product/someproduct/info">Go to info</router-link>`
+        }
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes: [
+                {
+                    path: '/',
+                    component: Home
+                },
+                {
+                    path: '/product/:product_id',
+                    component: Product,
+                    children: [
+                        {
+                            path: 'info',
+                            component: Info
+                        },
+                        {
+                            path: 'accessories',
+                            component: Accessories
+                        }
+                    ]
+                }]
+        })
+
+        const app = {}
+
+        const vueApp = Vue.createApp(app)
+        vueApp.use(router)
+        vueApp.mount("#app")
+    </script>
+</body>
+
+</html>

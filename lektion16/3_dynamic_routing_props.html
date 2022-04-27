@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic routing</title>
+    <style>
+        nav * {
+            margin: 0.3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <router-link to="/">Home</router-link>
+            <router-link to="/product/22">Product 22</router-link>
+            <router-link to="/product/50">Product 50</router-link>
+            <router-link to="/product/99">Product 99</router-link>
+        </nav>
+        <router-view></router-view>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.31"
+        integrity="sha384-G0X+ECsBjU2Ha7N2iYaXgLhQLRqTXERPvAoao78HQWMzQjfoVJxMaUj1595qZw5+"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue-router@4.0.14"
+        integrity="sha384-p/MQr8EifBn9P1NJ83Sxrz4UVrpi3oXCEatOW5o2jIyx9BB27OntxrRrCPY8rK1q"
+        crossorigin="anonymous"></script>
+    <script>
+        const Home = { template: '<p>my home page</p>' }
+        const Product = {
+            props: ['productId'],
+            template: '<p>{{productId}}</p>',
+            created() {
+                if (!Number.isInteger(Number(this.productId))) {
+                    this.$router.push('/error')
+                }
+            },
+            watch: {
+                productId() {
+                    if (!Number.isInteger(Number(this.productId))) {
+                        this.$router.push('/error')
+                    }
+                }
+            }
+        }
+        const ErrorPage = { template: '<p>Dumma dig!</p>' }
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes: [{ path: '/', component: Home },
+            { path: '/error', component: ErrorPage },
+            {
+                path: '/product/:productId',
+                component: Product,
+                props: true
+            }]
+        })
+
+        const app = {}
+
+        const vueApp = Vue.createApp(app)
+        vueApp.use(router)
+        vueApp.mount("#app")
+    </script>
+</body>
+
+</html>
