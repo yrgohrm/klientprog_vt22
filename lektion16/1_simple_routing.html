@@ -15,7 +15,9 @@
             <router-link to="/">Home</router-link>
             <router-link to="/about">About</router-link>
         </nav>
-        <router-view></router-view>
+        <div style="border: 1px solid black">
+            <router-view></router-view>
+        </div>
     </div>
     <div>a footer</div>
 
@@ -27,7 +29,11 @@
         crossorigin="anonymous"></script>
     <script>
         const Home = { template: '<p>my home <em>page</em></p>' }
-        const About = { template: '<p>my about page</p>' }
+        const About = { 
+            template: `<p>
+                            my about page<br>
+                            <router-link to="/">tillbaka</router-link></p>` 
+        }
 
         const router = VueRouter.createRouter({
             history: VueRouter.createWebHashHistory(),

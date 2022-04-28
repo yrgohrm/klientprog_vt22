@@ -14,14 +14,14 @@ export default defineConfig({
     build: {
         rollupOptions: {
             // https://rollupjs.org/guide/en/#outputmanualchunks
-            output: {
-                manualChunks: {
-                    "group-admin": [
-                      "./src/views/admin/AdminStartView.vue", 
-                      "./src/views/admin/RemoveUserView.vue"
-                    ],
-                },
-            },
+            // output: {
+            //     manualChunks: {
+            //         "group-admin": [
+            //           "./src/views/admin/AdminStartView.vue", 
+            //           "./src/views/admin/RemoveUserView.vue"
+            //         ],
+            //     },
+            // },
         },
     },
 })

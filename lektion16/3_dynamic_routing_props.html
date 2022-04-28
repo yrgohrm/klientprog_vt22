@@ -43,6 +43,7 @@
             watch: {
                 productId() {
                     if (!Number.isInteger(Number(this.productId))) {
+                        //alert("Ajjabajja!")0
                         this.$router.push('/error')
                     }
                 }
@@ -52,13 +53,14 @@
 
         const router = VueRouter.createRouter({
             history: VueRouter.createWebHashHistory(),
-            routes: [{ path: '/', component: Home },
-            { path: '/error', component: ErrorPage },
-            {
-                path: '/product/:productId',
-                component: Product,
-                props: true
-            }]
+            routes: [
+                { path: '/', component: Home },
+                { path: '/error', component: ErrorPage },
+                {
+                    path: '/product/:productId',
+                    component: Product,
+                    props: true
+                }]
         })
 
         const app = {}

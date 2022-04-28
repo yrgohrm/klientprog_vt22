@@ -13,9 +13,10 @@
     <div id="app">
         <nav>
             <router-link to="/">Home</router-link>
-            <router-link to="/product/22">Product 22</router-link>
-            <router-link to="/product/50">Product 50</router-link>
-            <router-link to="/product/99">Product 99</router-link>
+            <router-link to="/product/22/Skohorn">Product 22</router-link>
+            <router-link to="/product/50/Bygel">Product 50</router-link>
+            <router-link to="/product/99/Fisk">Product 99</router-link>
+            <router-link to="/product/102/Lennart">Product Lennart</router-link>
         </nav>
         <router-view></router-view>
     </div>
@@ -28,14 +29,15 @@
         crossorigin="anonymous"></script>
     <script>
         const Home = { template: '<p>my home page</p>' }
-        const Product = { 
-            template: '<p>You are viewing: {{this.$route.params.productId}}</p>' 
+        
+        const Product = {
+            template: '<p>You are viewing: {{this.$route.params.productId}} {{this.$route.params.productName}}</p>' 
         }
 
         const router = VueRouter.createRouter({
             history: VueRouter.createWebHashHistory(),
             routes: [ { path: '/', component: Home },
-                      { path: '/product/:productId', component: Product } ]
+                      { path: '/product/:productId/:productName', component: Product } ]
         })
 
         const app = {}
