@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard for important system</title>
+    <script src="https://unpkg.com/vue@3.2.26"
+        integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
+        crossorigin="anonymous"></script>
+    <!-- Pinia uses Vue Demi to support both Vue 2 and 3 -->
+    <script src="https://unpkg.com/vue-demi@0.12.4"
+        integrity="sha384-rZ6m4dKlaHbY7B8frX5+gO5c9h4sfHYHniSPbvUZQcyeFRwxkhz27z78newD2Z7R"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/pinia@2.0.12"
+        integrity="sha384-9+xYhKqd4Gc0rMcaTiKlnIOlZA5X6gWK6ZEe7Z3HxuqR4qoDoQYo8zU9dLawqTuZ"
+        crossorigin="anonymous"></script>
+    <script type="module" src="./app.js"></script>
+    <style>
+        #app {
+            display: flex;
+        }
+
+        div {
+            margin-left: 2em;
+        }
+
+        h1 {
+            margin-left: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dashboard for important system</h1>
+    <div id="app">
+        <highest-severity></highest-severity>
+        <event-list></event-list>
+        <severity-count></severity-count>
+    </div>
+</body>
+
+</html>
