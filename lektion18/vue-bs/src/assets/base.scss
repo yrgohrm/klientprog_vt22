@@ -1,0 +1,4 @@
+@use 'node_modules/bootstrap/scss/bootstrap' with (
+    $primary: rgb(30, 30, 30),
+    $enable-rounded: false
+);
